@@ -29,6 +29,18 @@
     </mat-grid-list>
   </div>
 
+<!-- <div fxFlex>
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile *ngFor="let item of items">
+      <img height="200px " src={{item.image}} alt={{item.name}}>
+      <mat-grid-tile-footer>
+        <h2 matLine>{{item.name | uppercase}}</h2>
+        <p matLine>{{item.description}}</p>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->
+
   <!-- <div fxFlex *ngIf="selectedItem">
     <mat-card>
       <mat-card-header>
@@ -47,6 +59,6 @@
     </mat-card>
   </div> -->
 
-</div>
-
 <app-itemdetail> </app-itemdetail>
+
+</div>
