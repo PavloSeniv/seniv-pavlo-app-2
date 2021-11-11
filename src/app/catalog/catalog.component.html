@@ -10,16 +10,15 @@
     </mat-list-item>
   </mat-list> -->
 
-  <div fxFlex class="catalog-title">
+  <div fxFlex fxLayoutAlign="center">
     <div>
       <h1>{{titleCatalog}}</h1>
-      <hr>
     </div>
   </div>
 
   <div fxFlex>
-    <mat-grid-list cols="3" rowHeight="200px">
-      <mat-grid-tile *ngFor="let item of items">
+    <mat-grid-list cols="{{colAadaptive}}" rowHeight="200px" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let item of items" (click)="onSelect(item)">
         <img height="200px " src={{item.image}} alt={{item.name}}>
         <mat-grid-tile-footer>
           <h2 matLine>{{item.name | uppercase}}</h2>
@@ -29,7 +28,7 @@
     </mat-grid-list>
   </div>
 
-<!-- <div fxFlex>
+  <!-- <div fxFlex>
   <mat-grid-list cols="3" rowHeight="200px">
     <mat-grid-tile *ngFor="let item of items">
       <img height="200px " src={{item.image}} alt={{item.name}}>
@@ -59,6 +58,6 @@
     </mat-card>
   </div> -->
 
-<app-itemdetail> </app-itemdetail>
+  <app-itemdetail [item]="selectedItem"></app-itemdetail>
 
 </div>

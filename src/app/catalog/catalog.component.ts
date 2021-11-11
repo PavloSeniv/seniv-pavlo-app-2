@@ -12,6 +12,8 @@ export class CatalogComponent implements OnInit {
 
   items = ITEMS;
 
+  selectedItem: Item = null as any;
+
   // selectedItem: Item = this.items[0];
 
   // items: Item[] = [
@@ -70,4 +72,27 @@ export class CatalogComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelect(item: Item) {
+    this.selectedItem = item;
+  }
+
+  // Для адаптиву cols(tsconfig.json додано рядок "noImplicitAny": false,)
+  colAadaptive: any = 3;
+  onResize(event) {
+    const element = event.target.innerWidth;
+    console.log(element);
+
+    if (element < 950) {
+      this.colAadaptive = 2;
+    }
+
+    if (element > 950) {
+      this.colAadaptive = 3;
+    }
+
+    if (element < 750) {
+      this.colAadaptive = 1;
+    }
+  }
 }
